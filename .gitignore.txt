@@ -1,0 +1,2 @@
+\venv
+\mov\movfind\movfind\__pycache__

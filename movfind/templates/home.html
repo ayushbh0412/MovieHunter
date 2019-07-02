@@ -1,0 +1,87 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">The MovieHunter</h1>
+                <hr>
+                <p>Movie Lover: We suggest what you are looking for!!</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">The latest movie review on one go.</h2>
+                    <hr class="light">
+                    <p class="text-faded">Add your favorite movie reviews.</p>
+                    <p class="text-faded">Find the top rated movies.</p>
+                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Recommendation For You</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+    {% block mainbody %}
+    {% load static %}
+    <div style=" margin-left: 6%;"><br>
+        {% for movie in popular %}
+            <a href="/movie/movie_detail/{{ movie.movieid }}">
+                <img id="poster" class="img-rounded" src="{{ movie.poster }}" width="200" height="220">
+            </a>
+        {% endfor %}
+    </div>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"/>
+
+    {% load static %}
+    <div style=" margin-left: 6%;"><br>
+        {% for movie in recommendation %}
+            <a href="/movie/movie_detail/{{ movie.movieid }}">
+                <img id="poster" class="img-rounded" src="{{ movie.poster }}" width="200" height="220">
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
+        </div>
+    </section>
+    <section id="contact" style="background:black">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <font color="white">
+                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <hr class="primary">
+                    <font color="white">
+                    <p>We value your feedback and suggestions. Please feel free to get in touch. </p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x sr-contact"></i>
+                    <p>123-456-6789</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                    <p><a href="mailto:your-email@your-domain.com">feedback@MovieHunter.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+{% endblock %}

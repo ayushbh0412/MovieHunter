@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+<section class="sample1" >
+<div id="container">
+    <br><br><br>
+    <h2 align="center"> Join Us!</h2>
+    <form action="" method="post">
+
+        {% if error %}
+            <div class="error">
+                <p style="color:red;">{{ error }}</p>
+            </div>
+        {% endif %}
+
+        <div class="container">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</div>
+</section>
+{% endblock %}
